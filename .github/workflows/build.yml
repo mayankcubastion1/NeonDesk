@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  macos:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: ./build.sh
+
+      - name: Upload app
+        uses: actions/upload-artifact@v4
+        with:
+          name: NeonDesk.app
+          path: build/NeonDesk.app
+          if-no-files-found: error
+
+      - name: Upload screensaver
+        uses: actions/upload-artifact@v4
+        with:
+          name: NeonDesk.saver
+          path: build/NeonDesk.saver
+          if-no-files-found: error

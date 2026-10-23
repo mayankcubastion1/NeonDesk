@@ -1,0 +1,18 @@
+# Build products
+build/
+*.app
+*.saver
+*.dSYM
+
+# Local machine state — theme pin, companion perch, wallpaper/dock backups
+state/
+
+# Generated stills live in Pictures, never here
+Pictures/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
